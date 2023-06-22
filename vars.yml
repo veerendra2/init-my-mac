@@ -1,0 +1,107 @@
+brew_pkgs:
+  - act
+  - awscli
+  - bash
+  - bash-completion
+  - ca-certificates
+  - cmatrix
+  - coreutils
+  - cowsay
+  - curl
+  - docutils
+  - figlet
+  - gh
+  - git
+  - util-linux
+  - findutils
+  - gnu-indent
+  - gnu-sed
+  - gnutls
+  - grep
+  - gnu-tar
+  - gawk
+  - go
+  - handbrake
+  - helm
+  - helmfile
+  - htop
+  - httpie
+  - hugo
+  - iperf
+  - iproute2mac
+  - istioctl
+  - jq
+  - k6
+  - k9s
+  - kubernetes-cli
+  - mysql-client
+  - ncurses
+  - neofetch
+  - nmap
+  - openjdk
+  - openssl
+  - perl
+  - php
+  - pv
+  - python@3.11
+  - pyyaml
+  - readline
+  - rtmpdump
+  - ruby
+  - screen
+  - screenresolution
+  - sqlite
+  - ssh-copy-id
+  - stow
+  - telnet
+  - terraform
+  - terragrunt
+  - tree
+  - unzip
+  - vim
+  - watch
+  - wget
+  - xclip
+  - yq
+  - restic
+  - readline
+  - bitwarden-cli
+
+brew_cask_appdir: /Applications
+brew_cask_apps:
+  - chromedriver
+  - docker
+  - firefox
+  - google-chrome
+  - handbrake
+  - slack
+  - caffeine
+  # - visual-studio-code
+  # - vagrant
+  # - virtualbox
+  # - bitwarden
+  # - ngrok
+  # - spotify
+
+pip_pkgs:
+  - requests
+  - thefuck
+  - frida-tools
+  - beautifulsoup4
+  - youtube_dl
+  - ansible
+  - scapy
+  - docker-compose
+  - tldr
+
+git_projects:
+  my-utils: "https://github.com/veerendra2/my-utils.git"
+  dotfiles: "https://github.com/veerendra2/dotfiles.git"
+  init-my-mac: "https://github.com/veerendra2/init-my-mac.git"
+
+dotfiles_script: "https://raw.githubusercontent.com/veerendra2/dotfiles/master/install.sh"
+
+github_username_keys: https://github.com/veerendra2.keys
+
+user_home: "{{ lookup('env', 'HOME') }}"
+user_name: "{{ ansible_env.USER }}"

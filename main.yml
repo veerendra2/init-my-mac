@@ -1,0 +1,11 @@
+# Author: Veerendra Kakumanu
+# Description: An Ansible playbook to install packages
+
+- name: Prepare Mac
+  hosts: localhost
+  gather_facts: yes
+  vars_files:
+    - vars.yml
+
+  tasks:
+    - import_tasks: tasks/pkgs.yml

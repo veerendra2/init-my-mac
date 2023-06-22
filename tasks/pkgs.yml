@@ -1,0 +1,45 @@
+---
+- name: Check homebrew installed
+  shell: brew --version
+  register: output
+
+- debug:
+    msg: "{{ output.stdout }}"
+
+- name: Install homebrew packages
+  homebrew:
+    name: "{{ brew_pkgs }}"
+    state: present
+
+- name: Install homebrew cask apps
+  homebrew_cask:
+    name: "{{ brew_cask_apps }}"
+    state: present
+    install_options:
+      - "appdir={{ brew_cask_appdir }}"
+      - "force"
+  become: yes
+
+- name: Install pip packages
+  pip:
+    name: "{{ pip_pkgs }}"
+    state: present
+    executable: "pip3"
+
+- name: Set authorized keys taken from url
+  authorized_key:
+    user: "{{ user_name }}"
+    state: present
+    key: "{{ github_username_keys }}"
+
+- name: Create directories
+  file:
+    name: "{{ user_home }}/projects"
+    state: directory
+
+- name: Cloning repo
+  git:
+    repo: "{{ item.value }}"
+    dest: "{{ user_home }}/projects/{{ item.key }}"
+    force: true
+  loop: "{{ lookup('dict', git_projects) }}"
