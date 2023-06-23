@@ -29,9 +29,7 @@ brew_pkgs:
   - hugo
   - iperf
   - iproute2mac
-  - istioctl
   - jq
-  - k6
   - k9s
   - kubernetes-cli
   - mysql-client
@@ -76,12 +74,12 @@ brew_cask_apps:
   - handbrake
   - slack
   - caffeine
-  # - visual-studio-code
-  # - vagrant
-  # - virtualbox
-  # - bitwarden
-  # - ngrok
-  # - spotify
+  - visual-studio-code
+  - vagrant
+  - virtualbox
+  - bitwarden
+  - ngrok
+  - spotify
 
 pip_pkgs:
   - requests
