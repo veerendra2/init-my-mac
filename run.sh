@@ -4,8 +4,11 @@ CUR_USER=`whoami`
 echo "[*] Add $CUR_USER to sudoer"
 echo "$CUR_USER ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers.d/custom
 
-# echo "[*] Install homebrew"
-# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo "[*] Install homebrew"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+echo "[*] Install python3"
+brew install python3
 
 echo "[*] Install pip3"
 brew install pip3
