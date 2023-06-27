@@ -8,4 +8,4 @@
     - vars.yml
 
   tasks:
-    - import_tasks: tasks/pkgs.yml
+    - import_tasks: tasks/prepare-mac.yml

@@ -80,6 +80,8 @@ brew_cask_apps:
   - bitwarden
   - ngrok
   - spotify
+  - iterm2
+  - textmate
 
 pip_pkgs:
   - requests
