@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 CUR_USER=`whoami`
 echo "[*] Add $CUR_USER to sudoer"
@@ -11,7 +11,7 @@ echo "[*] Install python3"
 brew install python3
 
 echo "[*] Install pip3"
-brew install pip3
+curl https://bootstrap.pypa.io/get-pip.py | python3
 
 echo "[*] Install ansible"
 pip3 install ansible

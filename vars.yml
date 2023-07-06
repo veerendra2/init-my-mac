@@ -82,6 +82,10 @@ brew_cask_apps:
   - spotify
   - iterm2
   - textmate
+  - whatsapp
+  - cyberduck
+  - postman
+  - vlc
 
 pip_pkgs:
   - requests
@@ -98,8 +102,6 @@ git_projects:
   my-utils: "https://github.com/veerendra2/my-utils.git"
   dotfiles: "https://github.com/veerendra2/dotfiles.git"
   init-my-mac: "https://github.com/veerendra2/init-my-mac.git"
-
-dotfiles_script: "https://raw.githubusercontent.com/veerendra2/dotfiles/master/install.sh"
 
 github_username_keys: https://github.com/veerendra2.keys
 

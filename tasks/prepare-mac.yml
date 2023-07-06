@@ -7,15 +7,33 @@
   debug:
     msg: "{{ output.stdout }}"
 
+- name: Change ownership for `brew --prefix`
+  shell: "chown -R {{ user_name }} $(brew --prefix)/*"
+  become: yes
+
+- name: Update Homebrew
+  homebrew:
+    update_homebrew: yes
+
+- name: Upgrade homebrew core packages
+  homebrew:
+    upgrade_all: yes
+
+- name: Upgrade homebrew cask packages
+  homebrew_cask:
+    upgrade_all: yes
+
 - name: Install homebrew core packages
   homebrew:
     name: "{{ brew_pkgs }}"
     state: present
+    upgrade_all: yes
 
 - name: Install homebrew cask packages
   homebrew_cask:
     name: "{{ brew_cask_apps }}"
     state: present
+    upgrade_all: yes
     install_options:
       - "appdir={{ brew_cask_appdir }}"
 
@@ -24,6 +42,10 @@
     name: "{{ pip_pkgs }}"
     state: present
     executable: "pip3"
+
+- name: Generate an OpenSSH keypair
+  openssh_keypair:
+    path: "{{ user_home }}/.ssh/id_rsa"
 
 - name: Set authorized keys taken from url
   authorized_key:

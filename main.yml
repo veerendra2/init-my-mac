@@ -1,5 +1,5 @@
-# Author: Veerendra Kakumanu
-# Description: An Ansible playbook to install packages
+# Author: Veerendra K
+# Description: An Ansible playbook to install necessary packages on MacOS
 
 - name: Prepare Mac
   hosts: localhost
