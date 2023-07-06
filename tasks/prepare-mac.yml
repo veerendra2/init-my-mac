@@ -27,13 +27,11 @@
   homebrew:
     name: "{{ brew_pkgs }}"
     state: present
-    upgrade_all: yes
 
 - name: Install homebrew cask packages
   homebrew_cask:
     name: "{{ brew_cask_apps }}"
     state: present
-    upgrade_all: yes
     install_options:
       - "appdir={{ brew_cask_appdir }}"
 
