@@ -1,33 +1,23 @@
 ---
-- block:
-  - name: Check homebrew installed
-    shell: brew --version
-    register: output
-  - debug:
-      msg: "{{ output.stdout }}"
+- name: Fetch homebrew version
+  shell: brew --version
+  register: output
 
-  rescue:
-  - name: Download Homebrew script
-    get_url:
-      url: https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
-      dest: "/tmp/Homebrew-install.sh"
-      mode: "0776"
-  - name: Install Homebrew
-    shell: "/tmp/Homebrew-install.sh"
+- name: Display homebrew version
+  debug:
+    msg: "{{ output.stdout }}"
 
-- name: Install homebrew packages
+- name: Install homebrew core packages
   homebrew:
     name: "{{ brew_pkgs }}"
     state: present
 
-- name: Install homebrew cask apps
+- name: Install homebrew cask packages
   homebrew_cask:
     name: "{{ brew_cask_apps }}"
     state: present
     install_options:
       - "appdir={{ brew_cask_appdir }}"
-      - "force"
-  become: yes
 
 - name: Install pip packages
   pip:
@@ -52,12 +42,3 @@
     dest: "{{ user_home }}/projects/{{ item.key }}"
     force: true
   loop: "{{ lookup('dict', git_projects) }}"
-
-# - name: Add environmental variables in ~/.bashrc
-#   blockinfile:
-#     path: "{{ user_home }}/.bashrc"
-#     block: |
-#       # Change default `bash`
-#       export PATH=$PATH:/usr/local/bin:
-#       export SHELL=/usr/local/bin/bash
-#       alias bash=/usr/local/bin/bash
