@@ -61,5 +61,4 @@
   git:
     repo: "{{ item.value }}"
     dest: "{{ user_home }}/projects/{{ item.key }}"
-    force: true
   loop: "{{ lookup('dict', git_projects) }}"

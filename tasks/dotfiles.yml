@@ -1,4 +1,9 @@
 ---
+- name: Cloning dotfiles repository
+  git:
+    repo: https://github.com/veerendra2/dotfiles.git
+    dest: "{{ user_home }}/projects/dotfiles"
+
 - name: Find dotfiles
   find:
     file_type: file
