@@ -9,3 +9,4 @@
 
   tasks:
     - import_tasks: tasks/prepare-mac.yml
+    - import_tasks: tasks/dotfiles.yml

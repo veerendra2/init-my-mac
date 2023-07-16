@@ -44,6 +44,7 @@
 - name: Generate an OpenSSH keypair
   openssh_keypair:
     path: "{{ user_home }}/.ssh/id_rsa"
+    force: no
 
 - name: Set authorized keys taken from url
   authorized_key:
@@ -51,12 +52,12 @@
     state: present
     key: "{{ github_username_keys }}"
 
-- name: Create directories
+- name: Create projects directory
   file:
     name: "{{ user_home }}/projects"
     state: directory
 
-- name: Cloning repo
+- name: Cloning git repositories
   git:
     repo: "{{ item.value }}"
     dest: "{{ user_home }}/projects/{{ item.key }}"
