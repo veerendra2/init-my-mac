@@ -4,6 +4,8 @@
 <img src="https://user-images.githubusercontent.com/8393701/248331160-ae1cd8f6-7c4b-483b-9799-6b44ed3f30f2.png" alt="Mac" width="300"/>
 
 ## Run
+* Install [Homebrew](https://brew.sh/)
+
 ```bash
 curl https://raw.githubusercontent.com/veerendra2/init-my-mac/master/run.sh | bash
 ```

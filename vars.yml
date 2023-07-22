@@ -76,7 +76,7 @@ brew_cask_apps:
   - caffeine
   - visual-studio-code
   - vagrant
-  - virtualbox
+  - virtualbox # fails on apple silicon!
   - bitwarden
   - ngrok
   - spotify

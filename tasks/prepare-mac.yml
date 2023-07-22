@@ -62,3 +62,4 @@
     repo: "{{ item.value }}"
     dest: "{{ user_home }}/projects/{{ item.key }}"
   loop: "{{ lookup('dict', git_projects) }}"
+  ignore_errors: yes
