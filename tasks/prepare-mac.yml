@@ -1,24 +1,4 @@
 ---
-- name: Fetch homebrew version
-  shell: brew --version
-  register: output
-
-- name: Display homebrew version
-  debug:
-    msg: "{{ output.stdout }}"
-
-- name: Update Homebrew
-  homebrew:
-    update_homebrew: yes
-
-- name: Upgrade homebrew core packages
-  homebrew:
-    upgrade_all: yes
-
-- name: Upgrade homebrew cask packages
-  homebrew_cask:
-    upgrade_all: yes
-
 - name: Install homebrew core packages
   homebrew:
     name: "{{ brew_pkgs }}"

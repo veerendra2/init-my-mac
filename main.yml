@@ -1,8 +1,22 @@
+---
 - name: Prepare Mac
   hosts: localhost
   gather_facts: yes
   vars_files:
     - vars.yml
+
+  pre_tasks:
+    - name: Update Homebrew
+      homebrew:
+        update_homebrew: yes
+
+    - name: Upgrade homebrew core packages
+      homebrew:
+        upgrade_all: yes
+
+    - name: Upgrade homebrew cask packages
+      homebrew_cask:
+        upgrade_all: yes
 
   tasks:
     - import_tasks: tasks/prepare-mac.yml
