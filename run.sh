@@ -27,8 +27,8 @@ echo "[*] Install ansible"
 pip3 install ansible
 
 if [[ $(git remote get-url origin) != "https://github.com/veerendra2/init-my-mac" ]]; then
-  mkdir -p ~/projects > /dev/null
-  pushd ~/projects
+  mkdir -p ~/projects
+  pushd ~/projects  > /dev/null
   ssh-keyscan github.com >> ~/.ssh/known_hosts
   git clone git@github.com:veerendra2/init-my-mac.git
   pushd init-my-mac > /dev/null
