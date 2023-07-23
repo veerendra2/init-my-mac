@@ -4,6 +4,13 @@
     name: "{{ brew_pkgs }}"
     state: present
 
+- name: Install homebrew cask packages
+  homebrew_cask:
+    name: "{{ brew_cask_apps }}"
+    state: present
+    install_options:
+      - "appdir={{ brew_cask_appdir }}"
+
 - name: Install virtualbox for x86_64
   homebrew_cask:
     name: virtualbox
@@ -11,13 +18,6 @@
     install_options:
       - "appdir={{ brew_cask_appdir }}"
   when: ansible_architecture == "x86_64"
-
-- name: Install homebrew cask packages
-  homebrew_cask:
-    name: "{{ brew_cask_apps }}"
-    state: present
-    install_options:
-      - "appdir={{ brew_cask_appdir }}"
 
 - name: Install pip packages
   pip:
