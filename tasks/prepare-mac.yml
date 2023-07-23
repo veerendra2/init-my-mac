@@ -7,10 +7,6 @@
   debug:
     msg: "{{ output.stdout }}"
 
-- name: Change ownership for `brew --prefix`
-  shell: "chown -R {{ user_name }} $(brew --prefix)/*"
-  become: yes
-
 - name: Update Homebrew
   homebrew:
     update_homebrew: yes
@@ -27,6 +23,14 @@
   homebrew:
     name: "{{ brew_pkgs }}"
     state: present
+
+- name: Install virtualbox for x86_64
+  homebrew_cask:
+    name: virtualbox
+    state: present
+    install_options:
+      - "appdir={{ brew_cask_appdir }}"
+  when: ansible_architecture == "x86_64"
 
 - name: Install homebrew cask packages
   homebrew_cask:

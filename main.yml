@@ -1,6 +1,3 @@
-# Author: Veerendra K
-# Description: An Ansible playbook to install necessary packages on MacOS
-
 - name: Prepare Mac
   hosts: localhost
   gather_facts: yes
@@ -8,5 +5,5 @@
     - vars.yml
 
   tasks:
-    # - import_tasks: tasks/prepare-mac.yml
+    - import_tasks: tasks/prepare-mac.yml
     - import_tasks: tasks/dotfiles.yml

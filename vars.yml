@@ -64,6 +64,7 @@ brew_pkgs:
   - restic
   - readline
   - bitwarden-cli
+  - docker-compose
 
 brew_cask_appdir: /Applications
 brew_cask_apps:
@@ -76,7 +77,6 @@ brew_cask_apps:
   - caffeine
   - visual-studio-code
   - vagrant
-  - virtualbox # fails on apple silicon!
   - bitwarden
   - ngrok
   - spotify
@@ -86,6 +86,7 @@ brew_cask_apps:
   - cyberduck
   - postman
   - vlc
+  - jellyfin-media-player
 
 pip_pkgs:
   - requests
@@ -95,7 +96,6 @@ pip_pkgs:
   - youtube_dl
   - ansible
   - scapy
-  - docker-compose
   - tldr
 
 git_projects:

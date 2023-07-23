@@ -35,4 +35,4 @@ if [[ $(git remote get-url origin) != "https://github.com/veerendra2/init-my-mac
 fi
 
 echo "***************** Starting Ansible Playbook *****************"
-exec ansible-playbook main.yml
+ansible-playbook main.yml
