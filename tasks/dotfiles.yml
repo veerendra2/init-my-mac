@@ -3,6 +3,7 @@
   git:
     repo: https://github.com/veerendra2/dotfiles.git
     dest: "{{ user_home }}/projects/dotfiles"
+  ignore_errors: yes
 
 - name: Find dotfiles
   find:

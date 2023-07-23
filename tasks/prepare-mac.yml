@@ -1,28 +1,4 @@
 ---
-- name: Fetch homebrew version
-  shell: brew --version
-  register: output
-
-- name: Display homebrew version
-  debug:
-    msg: "{{ output.stdout }}"
-
-- name: Change ownership for `brew --prefix`
-  shell: "chown -R {{ user_name }} $(brew --prefix)/*"
-  become: yes
-
-- name: Update Homebrew
-  homebrew:
-    update_homebrew: yes
-
-- name: Upgrade homebrew core packages
-  homebrew:
-    upgrade_all: yes
-
-- name: Upgrade homebrew cask packages
-  homebrew_cask:
-    upgrade_all: yes
-
 - name: Install homebrew core packages
   homebrew:
     name: "{{ brew_pkgs }}"
@@ -34,6 +10,14 @@
     state: present
     install_options:
       - "appdir={{ brew_cask_appdir }}"
+
+- name: Install virtualbox for x86_64
+  homebrew_cask:
+    name: virtualbox
+    state: present
+    install_options:
+      - "appdir={{ brew_cask_appdir }}"
+  when: ansible_architecture == "x86_64"
 
 - name: Install pip packages
   pip:
@@ -62,3 +46,4 @@
     repo: "{{ item.value }}"
     dest: "{{ user_home }}/projects/{{ item.key }}"
   loop: "{{ lookup('dict', git_projects) }}"
+  ignore_errors: yes

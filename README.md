@@ -4,10 +4,15 @@
 <img src="https://user-images.githubusercontent.com/8393701/248331160-ae1cd8f6-7c4b-483b-9799-6b44ed3f30f2.png" alt="Mac" width="300"/>
 
 ## Run
-```bash
-curl https://raw.githubusercontent.com/veerendra2/init-my-mac/master/run.sh | bash
-```
+* Install [Homebrew](https://brew.sh/) and run below script
 
+  ```bash
+  curl https://raw.githubusercontent.com/veerendra2/init-my-mac/master/run.sh | bash
+  ```
+
+Other configuration tips
+* [iTerm - going one word backwards and forwards](https://apple.stackexchange.com/a/293988)
+* [Configure bash(Homebrew) in iTerm for MacOS](https://github.com/veerendra2/dotfiles#configure-bashhomebrew-in-iterm-for-macos)
 ## Other Repos
 | Repo | OS |
 | ---- | ---- |
