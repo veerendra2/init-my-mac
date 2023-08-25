@@ -1,3 +1,5 @@
+> ## :bangbang: This repo is deprecated, merged into [veerendra2/prepare-my-machine](https://github.com/veerendra2/prepare-my-machine) uses [veerendra2.prepare_dev_setup](https://galaxy.ansible.com/veerendra2/prepare_dev_setup) ansible role :bangbang:
+
 # Init My Mac
 [IaC](https://en.wikipedia.org/wiki/Infrastructure_as_code) setup to install necessary packages and configure my Mac.
 
